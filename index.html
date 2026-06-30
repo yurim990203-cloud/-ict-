@@ -1272,10 +1272,9 @@ function saveRanking(){
   const a=document.getElementById('inp-age').value.trim();
   const g=document.getElementById('inp-gender').value;
   const rec=parseInt(document.getElementById('inp-rec').value);
-  const org=document.getElementById('inp-org').value.trim();
   if(!n||!rec){showToast('⚠️ 이름과 기록을 입력하세요');return;}
   const r=gradeOf(rec,g,a);
-  const entry={n,a,g,org,rec,label:r.label,col:r.color,ts:Date.now()};
+  const entry={n,a,g,rec,label:r.label,col:r.color,ts:Date.now()};
   const idx=rankData.findIndex(e=>e.n===n);
   if(idx>=0){
     if(rankData[idx].rec<rec){rankData[idx]=entry;showToast(`🔄 ${n}님 기록 갱신!`);}
